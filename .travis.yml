@@ -1,0 +1,12 @@
+language: bash
+env:
+  matrix:
+    - LANGUAGE=en_US.UTF-8
+    - LANGUAGE=fr_FR.UTF-8
+matrix:
+  fast_finish: true
+cache: apt
+before_install:
+  - sudo apt-get update && sudo apt-get --reinstall install -qq language-pack-en language-pack-fr
+script:
+  bash bin/shpec
